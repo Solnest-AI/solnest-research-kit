@@ -33,3 +33,6 @@ bin/
 *.pyc
 .pytest_cache/
 *.bak*
+
+# private editor rules a local sync job drops here; never ship
+.cursor/
