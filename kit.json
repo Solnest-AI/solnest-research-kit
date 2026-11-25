@@ -1,0 +1,130 @@
+{
+  "kit": "research-kit",
+  "title": "Research Kit",
+  "tools": [
+    {
+      "id": "firecrawl",
+      "label": "Firecrawl",
+      "kind": "http-key",
+      "url": "https://mcp.firecrawl.dev/v2/mcp",
+      "keys": [
+        "FIRECRAWL_API_KEY"
+      ],
+      "headers": {
+        "Authorization": "Bearer ${FIRECRAWL_API_KEY}"
+      },
+      "test": "firecrawl",
+      "connector": "connectors/firecrawl.md",
+      "skills": "deep-internet-research, ad-library-research"
+    },
+    {
+      "id": "brave-search",
+      "label": "Brave Search",
+      "kind": "stdio-key",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@brave/brave-search-mcp-server",
+        "--transport",
+        "stdio"
+      ],
+      "keys": [
+        "BRAVE_API_KEY"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "test": "brave",
+      "connector": "connectors/brave-search.md",
+      "skills": "deep-internet-research"
+    },
+    {
+      "id": "exa",
+      "label": "Exa",
+      "kind": "stdio-key",
+      "command": "npx",
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ],
+      "keys": [
+        "EXA_API_KEY"
+      ],
+      "env": {
+        "EXA_API_KEY": "${EXA_API_KEY}"
+      },
+      "test": "exa",
+      "connector": "connectors/exa.md",
+      "skills": "deep-internet-research"
+    },
+    {
+      "id": "tavily",
+      "label": "Tavily",
+      "kind": "stdio-key",
+      "command": "npx",
+      "args": [
+        "-y",
+        "tavily-mcp"
+      ],
+      "keys": [
+        "TAVILY_API_KEY"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+      },
+      "test": "tavily",
+      "connector": "connectors/tavily.md",
+      "skills": "deep-internet-research"
+    },
+    {
+      "id": "apify",
+      "label": "Apify",
+      "kind": "oauth",
+      "url": "https://mcp.apify.com",
+      "connector": "connectors/apify.md",
+      "skills": "deep-internet-research, reddit-search, ad-library-research",
+      "optionalKeys": [
+        "APIFY_TOKEN"
+      ],
+      "test": "apify-token",
+      "optionalNote": "only the Reddit search script uses it"
+    },
+    {
+      "id": "github",
+      "label": "GitHub (MCP)",
+      "kind": "http-key",
+      "url": "https://api.githubcopilot.com/mcp/readonly",
+      "fullUrl": "https://api.githubcopilot.com/mcp/",
+      "keys": [
+        "GITHUB_PAT"
+      ],
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT}"
+      },
+      "test": "github",
+      "connector": "connectors/github.md",
+      "skills": "deep-internet-research (optional)"
+    },
+    {
+      "id": "gh",
+      "label": "GitHub CLI (gh)",
+      "kind": "cli",
+      "check": [
+        "gh",
+        "auth",
+        "status"
+      ],
+      "names": [],
+      "connector": "connectors/gh.md",
+      "skills": "deep-internet-research"
+    }
+  ],
+  "shareKeys": {
+    "deep-internet-research": [
+      "APIFY_TOKEN"
+    ],
+    "reddit-search": [
+      "APIFY_TOKEN"
+    ]
+  }
+}

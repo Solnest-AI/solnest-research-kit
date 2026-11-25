@@ -1,0 +1,35 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.token
+tokens.json
+token.json
+credentials/
+keys.env
+# installed servers, caches, state
+vendor/
+node_modules/
+.venv/
+.cache/
+__pycache__/
+nanobanana-output/
+# browser profiles and captures
+profiles/
+.chrome-profile/
+*.har
+*-cookies.json
+cookie.txt
+session.txt
+storage_state.json
+# os
+.DS_Store
+Thumbs.db
+# updater state and the installed launcher (never part of a release)
+.update-backup/
+.research-kit-files.txt
+bin/
+*.update-tmp
+*.pyc
+.pytest_cache/
+*.bak*
